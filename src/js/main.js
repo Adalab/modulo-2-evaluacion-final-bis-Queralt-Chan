@@ -8,9 +8,9 @@ let arrayFriends = [];
 function getDataApi (){
 fetch ('https://randomuser.me/api/?results=10')
 .then ((response) => response.json())
-.then ((data) => {
-    console.log (results);
-    arrayFriends = results.results;
+.then ((getDataApi) => {
+    console.log (data);
+    arrayFriends = data.results;
     let name = results.results.name;
     let city = results.results.location.city;
     let user = results.results.login.username;
