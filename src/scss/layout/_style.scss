@@ -1,3 +1,4 @@
+
 .js-mainContainer {
     background-color: black;
     
@@ -5,7 +6,8 @@
     display: flex;
     justify-content:center;
     align-items: center;
-    gap:20px;  
+    gap:20px; 
+  
 }
 .js-friendsList {
     background-color: pink;
@@ -13,5 +15,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 40px;
+    list-style: none;
+    margin: auto;
+    padding: 20px;
+    gap:20px;
+    
+  
 }
