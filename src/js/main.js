@@ -8,18 +8,16 @@ let arrayFriends = [];
 function getDataApi (){
 fetch ('https://randomuser.me/api/?results=10')
 .then ((response) => response.json())
-.then ((getDataApi) => {
-    console.log (data);
+.then ((data) => {
+    console.log (data.results);
     arrayFriends = data.results;
-    let name = results.results.name;
-    let city = results.results.location.city;
-    let user = results.results.login.username;
-
-    for (const List of arrayFriends) {
-        friendsList.innerHTML+= `<li> <img src="${List}" alt="friends">
-        <h3>${name}<h3> 
-        <h3>${city}<h3> 
-        <h4>${user}<h4>
+    
+    console.log (arrayFriends);
+    for (const friendData of arrayFriends) {
+        friendsList.innerHTML+= `<li class="amiguiContainer"> <img class="imageFriend" src="${friendData.picture.medium}" alt="friends">
+        <h3>${friendData.name.title} ${friendData.name.first} ${friendData.name.last}<h3> 
+        <h3>${friendData.location.city}<h3> 
+        <h4>${friendData.login.username}<h4>
     </li>`
     
     }
