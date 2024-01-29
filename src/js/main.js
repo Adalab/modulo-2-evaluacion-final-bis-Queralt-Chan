@@ -9,11 +9,12 @@ function getDataApi (){
 fetch ('https://randomuser.me/api/?results=10')
 .then ((response) => response.json())
 .then ((data) => {
-    console.log (data);
-    arrayFriends = data.results;
+    console.log (results);
+    arrayFriends = results.results;
     let name = results.results.name;
     let city = results.results.location.city;
     let user = results.results.login.username;
+
     for (const List of arrayFriends) {
         friendsList.innerHTML+= `<li> <img src="${List}" alt="friends">
         <h3>${name}<h3> 
