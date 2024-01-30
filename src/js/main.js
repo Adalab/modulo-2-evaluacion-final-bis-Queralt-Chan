@@ -10,9 +10,15 @@ let arrayFriends = [];
 
 function handleClick(event) {
     const clickedCard = event.currentTarget.id;
-    console.log(clickedCard);
+    const WhereIsAmigui = arrayFriends.findIndex (friend => friend.login.uuid === clickedCard);
+    console.log (clickedCard);
     
-}
+
+    }
+
+
+    
+
 function listenerFriends () {
     const allFriends = document.querySelectorAll ('.js-amiguiContainer');
 
