@@ -1,6 +1,6 @@
 'use strict';
 
-// const { TRUE } = require("sass");
+
 
 const btnS = document.querySelector ('.js-btnSave');
 const btnR = document.querySelector ('.js-btnRecover');
@@ -16,18 +16,15 @@ function handleClick(event) {
     
     const findFriends = arrayFriends.findIndex((friends) => friends.login.uuid === clickedCard); //me indica la posición del objeto dentro del
     console.log (findFriends);
-    
-    if (findFriends === true) { // Si se encuentra el amigo en el array
-        const selectedFriend = arrayFriends[findFriends];
-        selectedFriend.isFriend = true;
-        clickedCard.classList.add('card__selected');
-        console.log (findFriends);
+} 
+    if (findFriends !== -1) {  
+        arrayFriends[findFriends].isFriend = true;
+        clickedCard.classList.add('card__selected');    
+    //si el resultado es distinto a -1, añademe true a la posición que tiene esa coincidencia dentro del array
+    // y pintame esa tarjeta.
+}    
 
-}
-}   
-
-
-    
+handleClick ();
 
 function listenerFriends () {
     const allFriends = document.querySelectorAll ('.js-amiguiContainer');
@@ -46,8 +43,7 @@ fetch ('https://randomuser.me/api/?results=10')
 .then ((data) => {
     console.log (data.results);
     arrayFriends = data.results;
-    localStorage.setItem('users', JSON.stringify (arrayFriends));
-    
+     
     console.log (arrayFriends);
     for (const friendData of arrayFriends) {
         friendsList.innerHTML+= `<li class="js-amiguiContainer card__selected" id="${friendData.login.uuid}"><img class="imageFriend" src="${friendData.picture.medium}" alt="friends">
