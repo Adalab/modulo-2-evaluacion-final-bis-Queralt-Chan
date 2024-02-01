@@ -16,15 +16,18 @@ function handleClick(event) {
     
     const findFriends = arrayFriends.findIndex((friends) => friends.login.uuid === clickedCard); //me indica la posición del objeto dentro del
     console.log (findFriends);
-} 
+
     if (findFriends !== -1) {  
         arrayFriends[findFriends].isFriend = true;
         clickedCard.classList.add('card__selected');    
     //si el resultado es distinto a -1, añademe true a la posición que tiene esa coincidencia dentro del array
     // y pintame esa tarjeta.
 }    
-
 handleClick ();
+} 
+    
+
+
 
 function listenerFriends () {
     const allFriends = document.querySelectorAll ('.js-amiguiContainer');
