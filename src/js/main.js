@@ -7,15 +7,20 @@ const btnR = document.querySelector ('.js-btnRecover');
 const friendsList = document.querySelector ('.js-friendsList');
 
 
-let arrayFriends = 
-];
+let arrayFriends = [friends].isFriend = true;
+
 
 
 function handleClick(event) {
     const clickedCard = event.currentTarget.id; //elemento donde hacemos el click
     
-    const findFriends = arrayFriends.findIndex((friends) => friends.login.uuid === clickedCard); //me indica la posición del objeto dentro del array
+    const findFriends = arrayFriends.findIndex((friends) => friends.login.uuid === clickedCard); //me indica la posición del objeto dentro del
     console.log (findFriends);
+    
+    if (findFriends === true) {
+     clickedCard.classList.add ('card__selected');
+
+    }
 }
     
 
@@ -39,13 +44,14 @@ fetch ('https://randomuser.me/api/?results=10')
 .then ((data) => {
     console.log (data.results);
     arrayFriends = data.results;
+    localStorage.setItem('users', JSON.stringify (arrayFriends));
     
     console.log (arrayFriends);
-    for (const friendData of arrayFriends) {  //bucle que recorre el array de mis usuarios/ luego en cada etiqueta de la li recogemos las propiedades que nos interesan del objeto del array
-        friendsList.innerHTML+= `<li class="js-amiguiContainer selected" id="${friendData.login.uuid}"> <img class="imageFriend" src="${friendData.picture.medium}" alt="friends">
-        <h3>${friendData.name.title} ${friendData.name.first} ${friendData.name.last}<h3> 
-        <h3>${friendData.location.city}<h3> 
-        <h4>${friendData.login.username}<h4> 
+    for (const friendData of arrayFriends) {
+        friendsList.innerHTML+= `<li class="js-amiguiContainer card__selected" id="${friendData.login.uuid}"><img class="imageFriend" src="${friendData.picture.medium}" alt="friends">
+        <h3>${friendData.name.title} ${friendData.name.first} ${friendData.name.last}</h3> 
+        <h3>${friendData.location.city}</h3> 
+        <h4>${friendData.login.username}</h4> 
     </li>`
     }
 listenerFriends ();

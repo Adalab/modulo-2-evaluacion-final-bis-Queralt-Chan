@@ -31,7 +31,7 @@
         height: 50px;
     }
     
- .selected {
+ &card___selected {
     background-color: #ffcc00; /* Cambia el color de la tarjeta cuando le añada la classList*/
 }
 
