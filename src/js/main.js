@@ -19,14 +19,23 @@ function handleClick(event) {
 
     if (findFriends !== -1) {  
         arrayFriends[findFriends].isFriend = true;
-        clickedCard.classList.add('card__selected');    
+        findFriends.classList.add('card__selected'); 
+        console.log (friends);  
     //si el resultado es distinto a -1, añademe true a la posición que tiene esa coincidencia dentro del array
-    // y pintame esa tarjeta.
+    // pintame esa tarjeta.
 }    
-handleClick ();
+
 } 
     
-
+function renderFriends (){
+    friendsList.innerHTML += `<li class="js-amiguiContainer card__selected" id="${friendData.login.uuid}"><img class="imageFriend" src="${friendData.picture.medium}" alt="friends">
+    <h3>${friendData.name.title} ${friendData.name.first} ${friendData.name.last}</h3> 
+    <h3>${friendData.location.city}</h3> 
+    <h4>${friendData.login.username}</h4> 
+</li>`
+}
+ 
+renderFriends (); // renderizar otra vez a los usurarios/ejecutar
 
 
 function listenerFriends () {
