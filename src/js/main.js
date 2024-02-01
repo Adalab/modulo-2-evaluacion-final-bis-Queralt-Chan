@@ -7,7 +7,7 @@ const btnR = document.querySelector ('.js-btnRecover');
 const friendsList = document.querySelector ('.js-friendsList');
 
 
-let arrayFriends = [friends].isFriend = true;
+let arrayFriends = [];
 
 
 
@@ -17,12 +17,14 @@ function handleClick(event) {
     const findFriends = arrayFriends.findIndex((friends) => friends.login.uuid === clickedCard); //me indica la posición del objeto dentro del
     console.log (findFriends);
     
-    if (findFriends === true) {
-     clickedCard.classList.add ('card__selected');
+    if (findFriends === true) { // Si se encuentra el amigo en el array
+        const selectedFriend = arrayFriends[findFriends];
+        selectedFriend.isFriend = true;
+        clickedCard.classList.add('card__selected');
+        console.log (findFriends);
 
-    }
 }
-    
+}   
 
 
     
